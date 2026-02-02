@@ -4,43 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zen Task</title>
+    <title>Zen Task Premium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <div class="background-mesh"></div>
     <div class="container">
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
-            <!-- Icon injected by JS -->
-        </button>
+        <!-- Header -->
         <header>
-            <div class="date-display" id="currentDate">Monday, October 24</div>
-            <h1>Today's Plan</h1>
+            <div class="header-top">
+                <div class="date-display" id="currentDate">Monday, October 24</div>
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                    <!-- Icon injected by JS -->
+                </button>
+            </div>
+            <h1>Today's Focus</h1>
+            <p class="subtitle">Stay organized, focused, and efficient.</p>
         </header>
 
-        <div class="input-line">
-            <span class="bullet">•</span>
-            <input type="text" id="taskInput" placeholder="Write a task..." autocomplete="off">
-            <button id="addBtn">Add</button>
+        <!-- Search & Filter Bar -->
+        <div class="control-bar">
+            <div class="search-wrapper">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    class="search-icon">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search tasks...">
+            </div>
+            <div class="filter-wrapper">
+                <select id="filterPriority">
+                    <option value="">All Priorities</option>
+                    <option value="high">High Priority</option>
+                    <option value="medium">Medium Priority</option>
+                    <option value="low">Low Priority</option>
+                </select>
+            </div>
         </div>
 
+        <!-- Add Task Form -->
+        <div class="add-task-card">
+            <div class="input-group">
+                <input type="text" id="taskInput" placeholder="What needs to be done?" autocomplete="off"
+                    class="main-input">
+            </div>
+            <div class="input-details">
+                <input type="text" id="descInput" placeholder="Add details..." class="desc-input">
+                <div class="meta-inputs">
+                    <select id="priorityInput">
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                        <option value="low">Low</option>
+                    </select>
+                    <input type="date" id="dateInput">
+                    <button id="addBtn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                        Add Task
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task List -->
+        <div class="list-header">
+            <span>Tasks</span>
+            <span id="taskCount" class="task-count">0 tasks</span>
+        </div>
         <ul id="taskList" class="task-list">
             <!-- Tasks injected here -->
         </ul>
 
         <footer>
-            <p>Focus on one thing at a time.</p>
+            <p>Designed for productivity.</p>
         </footer>
     </div>
 
     <script src="app.js"></script>
     <script>
-        // Simple date script
         const options = { weekday: 'long', month: 'long', day: 'numeric' };
         document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', options);
     </script>

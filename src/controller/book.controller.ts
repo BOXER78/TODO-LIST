@@ -59,7 +59,7 @@ export class BookController {
     next: NextFunction
   ) => {
     try {
-      const book = await this.service.getBookById(req.params.id);
+      const book = await this.service.getBookById(req.params.id as string);
       if (!book) {
         return res.status(404).json({ success: false, message: "Book not found" });
       }
@@ -75,7 +75,7 @@ export class BookController {
     next: NextFunction
   ) => {
     try {
-      const updated = await this.service.updateBook(req.params.id, req.body);
+      const updated = await this.service.updateBook(req.params.id as string, req.body);
       if (!updated) {
         return res.status(404).json({ success: false, message: "Book not found" });
       }
@@ -91,7 +91,7 @@ export class BookController {
     next: NextFunction
   ) => {
     try {
-      const deleted = await this.service.deleteBook(req.params.id);
+      const deleted = await this.service.deleteBook(req.params.id as string);
       if (!deleted) {
         return res.status(404).json({ success: false, message: "Book not found" });
       }

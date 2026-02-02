@@ -1,4 +1,4 @@
-import { FilterQuery } from "mongoose";
+import mongoose from "mongoose";
 import { BookDocument, BookModel } from "../schema/book.schema";
 
 export interface BookQueryOptions {
@@ -36,7 +36,7 @@ export class BookRepository {
       maxPrice,
     } = query;
 
-    const filter: FilterQuery<BookDocument> = {};
+    const filter: any = {};
 
     if (search) {
       filter.$or = [
