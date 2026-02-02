@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zen Task</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+            <!-- Icon injected by JS -->
+        </button>
+        <header>
+            <div class="date-display" id="currentDate">Monday, October 24</div>
+            <h1>Today's Plan</h1>
+        </header>
+
+        <div class="input-line">
+            <span class="bullet">•</span>
+            <input type="text" id="taskInput" placeholder="Write a task..." autocomplete="off">
+            <button id="addBtn">Add</button>
+        </div>
+
+        <ul id="taskList" class="task-list">
+            <!-- Tasks injected here -->
+        </ul>
+
+        <footer>
+            <p>Focus on one thing at a time.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Simple date script
+        const options = { weekday: 'long', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', options);
+    </script>
+</body>
+
+</html>

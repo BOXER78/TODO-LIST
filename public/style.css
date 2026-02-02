@@ -1,0 +1,179 @@
+:root {
+    --bg-color: #faf9f6;
+    /* Off-white / Paper */
+    --text-main: #18181b;
+    --text-muted: #71717a;
+    --border: #e4e4e7;
+    --accent: #6366f1;
+    /* Soft Indigo Accent */
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    --bg-color: #18181b;
+    --text-main: #f4f4f5;
+    --text-muted: #a1a1aa;
+    --border: #27272a;
+    --accent: #818cf8;
+}
+
+[data-theme="dark"] body {
+    background: var(--bg-color) !important;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    /* Subtle warm gradient */
+    background: linear-gradient(135deg, #fffcf5 0%, #f0f7ff 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding-top: 10vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+header {
+    margin-bottom: 3rem;
+}
+
+.date-display {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-family: 'Lora', serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    letter-spacing: -1px;
+    color: var(--text-main);
+    line-height: 1.1;
+}
+
+/* Input Area */
+.input-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-line:focus-within {
+    border-color: var(--accent);
+}
+
+.bullet {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    line-height: 1;
+}
+
+input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    font-family: 'Lora', serif;
+    font-size: 1.5rem;
+    color: var(--text-main);
+    outline: none;
+    font-style: italic;
+}
+
+input::placeholder {
+    color: #d4d4d8;
+}
+
+button#addBtn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    /* Use accent color */
+    color: var(--accent);
+    /* Use accent color */
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button#addBtn:hover {
+    background: var(--accent);
+    /* Fill with accent on hover */
+    color: white;
+    /* White text on hover */
+}
+
+/* Task List */
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+
+
+.task-text {
+    font-family: 'Lora', serif;
+    font-size: 1.25rem;
+    color: var(--text-main);
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    padding: 0.5rem;
+}
+
+.task-item:hover .delete-btn {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    color: #ef4444;
+}
+
+footer {
+    margin-top: 4rem;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.5;
+}
