@@ -147,7 +147,7 @@ window.toggleTask = async (id, isCompleted) => {
 }
 
 window.deleteTask = async (id) => {
-    if (!confirm("Are you sure?")) return;
+    // if (!confirm("Are you sure?")) return;
     try {
         await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
         fetchTasks();
